@@ -1,5 +1,5 @@
 <!-- Navbar Start -->
-<div class="container-fluid mb-5">
+<div class="container-fluid {{#if (eq currentPage 'home' )}}mb-5{{/if}}>">
     <div class="row border-top px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
@@ -7,8 +7,9 @@
                 <h6 class="m-0">Categories</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
-            <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-                id="navbar-vertical">
+            <nav class="collapse {{#if (eq currentPage 'home' )}}show{{/if}} {{#if (neq currentPage 'home' )}}position-absolute bg-light{{/if}} navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
+                id="navbar-vertical" {{#if (neq currentPage 'home' )}}style="width: calc(100% - 30px); z-index: 1;"
+                {{/if}}>
                 <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i
@@ -42,25 +43,32 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="shop.html" class="nav-item nav-link">Shop</a>
-                        <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
+                        <a href="/" class="nav-item nav-link {{#if (eq currentPage 'home')}}active{{/if}}">Home</a>
+                        <a href="shop" class="nav-item nav-link {{#if (eq currentPage 'shop')}}active{{/if}}">Shop</a>
+                        <a href="detail" class="nav-item nav-link {{#if (eq currentPage 'detail')}}active{{/if}}">Shop
+                            Detail</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle {{#if (eq currentPage 'pages')}}active{{/if}}"
+                                data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                <a href="cart" class="dropdown-item">Shopping Cart</a>
+                                <a href="checkout" class="dropdown-item">Checkout</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="contact"
+                            class="nav-item nav-link {{#if (eq currentPage 'contact')}}active{{/if}}">Contact</a>
+                        <a href="about"
+                            class="nav-item nav-link {{#if (eq currentPage 'about')}}active{{/if}}">About</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="/login.html" class="nav-item nav-link">Login</a>
-                        <a href="/register.html" class="nav-item nav-link">Register</a>
+                        <a href="login"
+                            class="nav-item nav-link {{#if (eq currentPage 'login')}}active{{/if}}">Login</a>
+                        <a href="register"
+                            class="nav-item nav-link {{#if (eq currentPage 'register')}}active{{/if}}">Register</a>
                     </div>
                 </div>
             </nav>
+            {{#if (eq currentPage 'home' )}}
             <div id="header-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style="height: 410px;">
@@ -97,6 +105,7 @@
                     </div>
                 </a>
             </div>
+            {{/if}}
         </div>
     </div>
 </div>

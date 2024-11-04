@@ -5,7 +5,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render('about', {
         title: 'About Us',
-        message: 'Learn more about us on this page.'
+        message: 'About',
+        currentPage: 'about'
     });
 });
 

@@ -4,8 +4,9 @@ const router = express.Router();
 // Route trang About
 router.get('/', (req, res) => {
     res.render('login', {
-        title: 'About Us',
-        message: 'Learn more about us on this page.'
+        title: 'Login',
+        message: 'Login',
+        currentPage: 'login'
     });
 });
 

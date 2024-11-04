@@ -5,10 +5,14 @@ const app = express();
 
 // Cấu hình Handlebars
 app.engine('hbs', engine({
-    extname: '.hbs',                                        // Định dạng file là .hbs
-    defaultLayout: 'main',                                  // Layout chính
-    layoutsDir: path.join(__dirname, 'src/views/layouts'),  // Thư mục chứa layout
-    partialsDir: path.join(__dirname, 'src/views/partials') // Thư mục chứa các partials
+    extname: '.hbs',                                             // Định dạng file là .hbs
+    defaultLayout: 'main',                                      // Layout chính
+    layoutsDir: path.join(__dirname, 'src/views/layouts'),      // Thư mục chứa layout
+    partialsDir: path.join(__dirname, 'src/views/partials'),    // Thư mục chứa các partials
+    helpers: {
+        eq: (a, b) => a === b,                                  // Định nghĩa helper 'eq'
+        neq: (a, b) => a !== b
+    }
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src/views'));
@@ -18,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 
 // Import và sử dụng các controllers
 const aboutRouter = require('./src/controllers/aboutController');
-const cardRouter = require('./src/controllers/cardController');
+const cartRouter = require('./src/controllers/cartController');
 const checkoutRouter = require('./src/controllers/checkoutController');
 const contactRouter = require('./src/controllers/contactController');
 const detailRouter = require('./src/controllers/detailController');
@@ -29,7 +33,7 @@ const shopRouter = require('./src/controllers/shopController');
 
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
-app.use('/card', cardRouter);
+app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/contact', contactRouter);
 app.use('/detail', detailRouter);

@@ -5,7 +5,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render('contact', {
         title: 'Contact Us',
-        message: 'Feel free to reach out to us!'
+        message: 'Contact',
+        currentPage: 'contact'
     });
 });
 
