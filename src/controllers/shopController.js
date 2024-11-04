@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// Route trang Contact
+// Route trang About
 router.get('/', (req, res) => {
-    res.render('contact', {
-        title: 'Contact Us',
-        message: 'Feel free to reach out to us!'
+    res.render('shop', {
+        title: 'About Us',
+        message: 'Learn more about us on this page.'
     });
 });
 
