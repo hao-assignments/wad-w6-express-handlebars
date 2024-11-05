@@ -31,6 +31,14 @@ const loginRouter = require('./src/controllers/loginController');
 const registerRouter = require('./src/controllers/registerController');
 const shopRouter = require('./src/controllers/shopController');
 
+app.use(async (req, res, next) => {
+    const categoriyModel = require("./src/models/categoriesModel");
+    const categories = (await categoriyModel.findAll()).rows;
+    // console.log(categories);
+    res.locals.categories = categories;
+    next();
+})
+
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/cart', cartRouter);
