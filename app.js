@@ -17,6 +17,9 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src/views'));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // Định nghĩa thư mục chứa các file tĩnh
 app.use(express.static(path.join(__dirname, 'src/public')));
 

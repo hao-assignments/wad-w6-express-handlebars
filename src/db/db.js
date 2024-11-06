@@ -3,11 +3,14 @@ require('dotenv').config();
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    user: "quanlybanhang_user",
+    host: "dpg-csli3u3tq21c73ej3270-a.oregon-postgres.render.com",
+    database: "quanlybanhang",
+    password: "tiRhnLNRsiIlq5A0nbyu6xBFWvNjt0zc",
+    port: 5432,
+    ssl: {
+        rejectUnauthorized: false // Render yêu cầu SSL
+    }
 });
 
 module.exports = pool;

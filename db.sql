@@ -1,17 +1,3 @@
-Database: quanlybanhang
-
-DROP DATABASE IF EXISTS quanlybanhang;
-
-CREATE DATABASE quanlybanhang
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'English_United States.1252'
-    LC_CTYPE = 'English_United States.1252'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
-
 CREATE TABLE Categories (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
@@ -115,6 +101,13 @@ INSERT INTO Products (name, imagePath, oldPrice, price, summary, description, st
     5,
     10,
     2
+);
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255),
+    email VARCHAR(255)
 );
 
 
